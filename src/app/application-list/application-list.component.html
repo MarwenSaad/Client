@@ -1,0 +1,30 @@
+<section class="site-section" >
+    <div class="container">
+      <div class="row" >
+        
+        <div class="col-lg-12 mb-4" *ngFor="let App of ApplicationList" style="max-width: 50%;">
+          <div class="block__87154 bg-light" >
+            <div class="col-lg-12">
+              <blockquote>
+                <p class="text-dark">&ldquo; {{App.App.coverLetter}} &rdquo;</p>
+                <a class="text-dark">
+                  {{App.App.applicationDate}}  
+                  <span *ngIf="App.App.isAccepted==true && App.App.isReceived==false" class="badge" style="min-width:60px ;padding: 5px;">&#x2705;</span> 
+                  <span *ngIf="App.App.isReceived==true" class="badge badge-success " style="min-width:30px ;padding: 5px;">&#9993; &#10004;</span>
+                  <span *ngIf="App.App.isAccepted==false" class="badge badge-danger" style="min-width:60px ;padding: 5px;">pending</span>
+                </a>
+              </blockquote>
+              <div class="block__91147 d-flex align-items-center">
+                <figure class="mr-4"><img src="{{App.C.picture}}" alt="Image" class="img-fluid"></figure>
+                <div>
+                  <h3 class="text-dark">{{App.C.companyName}}</h3>
+                  <span class="position position-2 text-dark">{{App.C.activityFiled}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>

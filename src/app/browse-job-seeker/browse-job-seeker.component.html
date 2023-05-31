@@ -1,0 +1,63 @@
+<section class="section-hero overlay inner-page bg-image" style="background-image: url('assets/images/hero_1.jpg');" id="home-section">
+</section>
+
+
+
+<section class="site-section">
+    <div class="container">
+
+      <div class="row mb-5 justify-content-center">
+        <div class="col-md-7 text-center">
+          <h2 class="section-title mb-2">{{JobSeekers.length!}} JobSeeker</h2>
+        </div>
+      </div>
+      
+      <ul class="job-listings mb-5">
+
+        <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center" *ngFor="let j of JobSeekers">
+           <a href="job-single.html" [routerLink]="['/PublicProfile',j.jobSeekerId,j.role]"></a>
+           
+          <div class="job-listing-logo">
+            <img src="{{j.picture}}"  class="img-fluid">
+          </div>
+
+          <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
+            <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
+              <strong>{{j.firstName}} {{j.lastName}}</strong>
+              <h2 style="font-size:10px ;">{{j.activityFiled}}</h2>
+              <h2 style="font-size:10px ;">{{j.email}}</h2>
+              <h2 style="font-size:10px ;">{{j.phone}}</h2>
+            </div>
+            <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
+              <span class="icon-room"></span> {{j.location}}
+            </div>
+            <div class="job-listing-meta">
+              <span class="badge badge-success">Type</span>
+            </div>
+            
+          </div>
+          
+        </li>
+
+      </ul>
+      
+      <div class="row pagination-wrap">
+        <div class="col-md-6 text-center text-md-left mb-4 mb-md-0">
+          <span>Showing 1-7 Of 43,167 Jobs</span>
+        </div>
+        <div class="col-md-6 text-center text-md-right">
+          <div class="custom-pagination ml-auto">
+            <a href="#" class="prev">Prev</a>
+            <div class="d-inline-block">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            </div>
+            <a href="#" class="next">Next</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>

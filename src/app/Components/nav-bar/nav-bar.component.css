@@ -1,0 +1,12 @@
+.profile-header-img {
+    float: left;
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+    margin: 0 0 0;
+    padding: 0px;
+    border-radius: 4px;
+    background: #fff
+}

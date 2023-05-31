@@ -1,0 +1,102 @@
+<section class="section-hero overlay inner-page bg-image" style="background-image: url('assets/images/hero_1.jpg');" id="home-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <h1 class="text-white font-weight-bold">Log In</h1>
+          <div class="custom-breadcrumbs">
+            <a href="#">Home</a> <span class="mx-2 slash">/</span>
+            <span class="text-white"><strong>Log In</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mb-6">
+          <h2 class="mb-4">Log In To JobBoard</h2>
+          <form [formGroup]="LoginForm" action="#" class="p-4 border rounded">
+
+            <div class="row form-group">
+              <div class="col-md-12 mb-3 mb-md-0">
+                <label class="text-black" for="fname">Email</label>
+                <input type="text" id="fname" class="form-control" placeholder="Email address" formControlName="Email">
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col-md-12 mb-3 mb-md-0">
+                <label class="text-black" for="fname">Password</label>
+                <input type="password" id="fname" class="form-control" placeholder="Password" formControlName="Password">
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <input type="submit" value="LogIn" class="btn px-4 btn-primary text-white" (click)="LogIn()">
+              </div>
+            </div>
+            <div type="submit" (click)="open(Contenent)" >Resit password </div>
+            <a>If you havent account pleas click here</a>
+            <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="button" value="Sign Up" class="btn px-4 btn-primary text-white" routerLink="/SignUp">
+                </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <ng-template #Contenent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title"> Email</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')" >close</button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="EmailForm">
+
+        <div class="col-lg-12 form-group">
+          <h6>Massage :</h6>
+          <input type="text" class="form-control text-center w-100" formControlName="EmailToId" >
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark btn-primary"  (click)="SendCode(Resit)">Send code</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+
+  <ng-template #Resit let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title"> Email</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')" >close</button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="ResitForm">
+
+        <div class="col-lg-12 form-group">
+          <h6>Email :</h6>
+          <input type="text" class="form-control text-center w-100" formControlName="Email" >
+        </div>
+        <div class="col-lg-12 form-group">
+          <h6>confirmation code :</h6>
+          <input type="text" class="form-control text-center w-100" formControlName="Code" >
+        </div>
+        <div class="col-lg-12 form-group">
+          <h6>New password :</h6>
+          <input type="text" class="form-control text-center w-100" formControlName="Password">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark btn-primary"  (click)="ResitPassword()">Send code</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>

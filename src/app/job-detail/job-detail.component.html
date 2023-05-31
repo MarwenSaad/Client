@@ -1,0 +1,100 @@
+
+      <ul class="job-listings mb-5">
+        <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+          <div class="job-listing-logo">
+            <img src="{{Job.company.picture}}" alt="Image" class="img-fluid" style="padding: 10px;">
+          </div>
+
+          <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
+            <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
+              <h2>{{Job.job.jobTitle}}</h2>
+              <strong>{{Job.company.companyName}}</strong>
+            </div>
+            <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
+               <span class="icon-room"></span> {{Job.job.location}}
+            </div>
+              <div class="job-listing-meta">
+                <span class="badge badge-success">{{Job.job.jobType}}</span>
+              </div>
+              <div class="job-listing-meta" type="submit">
+                <span class="badge badge-danger"(click)="DeleteJob(Job.job.jobId)"> &#10006;</span>
+              </div>
+          </div>
+        </li>
+      </ul>
+  <section class="site-section" style="padding-top: 0px;">
+    <div class="container">
+      <div class="row" >
+        
+        <div class="col-lg-12 mb-4" style="margin-top: -15px;max-width: 50%;" *ngFor="let item of  ApplicationsList">
+          <div class="block__87154 bg-light ">
+            <blockquote>
+              <p class="text-dark">&ldquo; {{item.Condidature.coverLettre}} &rdquo;</p>
+              <p class="position position-2 text-dark">&ldquo; {{item.Condidature.applicationDate}} &rdquo;</p>
+            </blockquote>
+            
+            <div class="block__91147 d-flex align-items-center">
+              <figure class="mr-4"><img src="{{item.Condidate.picture}}" alt="Image" class="img-fluid"><a *ngIf="item.Condidature.isAccepted==true"> &#x2705;</a></figure>
+              <div>
+                <h3 class="text-dark">{{item.Condidate.firstName}} {{item.Condidate.lastName}} </h3>
+                <span class="position position-2 text-dark">{{item.Condidate.jobTitle}}</span> 
+              </div>
+            </div>
+            <div class=" d-flex align-items-center" style="margin-top: 2%;">
+              <div class="d-flex" style="float:right;" *ngIf="item.Condidature.isAccepted==false">
+                <button class="job-listing-meta badge badge-success" style="margin:5px ; border: none;" (click)="Accept(item.Condidature)">
+                  <span class="badge badge-success" style="min-width:60px ;padding: 5px;">Accept</span>
+                </button>
+                <span >
+                  <button class="job-listing-meta badge badge-danger" style="margin:5px ;border: none;" (click)="Delete(item.Condidature)">
+                    <span class="badge badge-danger" style="min-width:60px ;padding: 5px;">Reject</span>
+                  </button>
+                </span>
+                
+              </div>
+              <div *ngIf="item.Condidature.isAccepted==true">
+                <button class="job-listing-meta badge badge-success" style="margin:5px ;border: none;" (click)="open(Contenent,item.Condidate,item.Condidature)">
+                  <span class="badge badge-success" style="min-width:60px ;padding: 5px;">Send Email</span>
+                </button>
+                <span *ngIf="item.Condidature.isReceived==true" class="badge " style="min-width:60px ;padding: 5px;">&#9993; &#10004;</span>
+              </div>
+
+            </div>
+            
+          </div>
+     
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+
+
+  <ng-template #Contenent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title"> Email</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')" >close</button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="EmailForm">
+        <!-- <div class="col-lg-12 form-group">
+          <h6>EmailToName  :</h6>
+          <input type="text" class="form-control text-center w-100" formControlName="EmailToName" >
+        </div>
+        <div class="col-lg-12 form-group">
+          <h6>EmailSubject  :</h6>
+          <input type="text" class="form-control text-center w-100"value="{{Job.Job.jobTitle}}" formControlName="EmailSubject" >
+        </div> -->
+        <div class="col-lg-12 form-group">
+          <h6>EmailBody :</h6>
+          <input type="text" class="form-control text-center w-100" formControlName="EmailBody">
+        </div>
+        <div class="modal-footer" (click)="SendEmail() " (click)="modal.dismiss('Cross click')">
+          <button type="button" class="btn btn-outline-dark" >Sent</button>
+        </div>
+      </form>
+    </div>
+  
+  
+  </ng-template>

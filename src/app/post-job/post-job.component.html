@@ -1,0 +1,106 @@
+<section class="site-section">
+  <form [formGroup]="PostJobForm">
+    <div class="container">
+
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-8 mb-4 mb-lg-0">
+          <div class="d-flex align-items-center">
+            <div>
+              <h2>Post A Job</h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="row">
+            <div class="col-6">
+              <a href="#" class="btn btn-block btn-light btn-md"><span class="icon-open_in_new mr-2"></span>Preview</a>
+            </div>
+            <div class="col-6" >
+              <a  class="btn btn-block btn-primary btn-md" (click)="PostJob()">Save Job</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-lg-12">
+          <div class="p-4 p-md-5 border rounded" method="post" >
+            <h3 class="text-black mb-5 border-bottom pb-2">Job Details</h3>
+            
+            <div class="form-group">
+              <label for="job-title">Job Title</label>
+              <input type="text" class="form-control" id="job-title" placeholder="Product Designer" formControlName="JobTitle">
+            </div>
+            <div class="form-group">
+              <label for="job-location">Location</label>
+              <select class="selectpicker border rounded" id="job-type" data-style="btn-black" data-width="100%" data-live-search="true" title="Select Job Type" formControlName="Location">
+                <option>Tunisia</option>
+                <option>Sousse</option>
+                <option>Bizert</option>
+                <option>Medninie</option>
+                <option>Seliana</option>
+                <option>El kef</option>
+                <option>Mahdia</option>
+                <option>Nabel</option>
+                <option>Kaserine</option>
+                <option>Jendouba</option>
+                <option>Beja</option>
+                <option>Kebelli</option>
+                <option>Tozer</option>
+                <option>Ariana</option>
+                <option>Gafsa</option>
+                <option>Gabes</option>
+                <option>Mennouba</option>
+                <option>Monastir</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="job-type">Job Type</label>
+              <select class="selectpicker border rounded" id="job-type" data-style="btn-black" data-width="100%" data-live-search="true" title="Select Job Type"formControlName="JobType">
+                <option >Part Time</option>
+                <option>Full Time</option>
+                <option>Remote</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="job-type">Job SubCatigorie</label>
+              <select class="selectpicker border rounded" id="job-type" data-style="btn-black" data-width="100%" data-live-search="true" title="SubCatigorie"formControlName="JobSubCatigorieId">
+                <option *ngFor="let sub of SubCatigorie" [value]="sub.jobCatigorieId" > {{sub.name}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="job-location">Salary</label>
+                <input type="text" class="form-control" id="job-location" placeholder="e.g. 2500 $" formControlName="Salary">
+            </div>
+            <div class="form-group">
+                <label for="job-location">Expiration</label>
+                <input type="date" class="form-control" id="job-location" placeholder="date time" formControlName="Expiration">
+            </div>
+
+
+            <div class="form-group">
+              <label for="job-description">Job Description</label>
+                <input  type="text" class="form-control editor" id="company-name" placeholder="e.g. New York" formControlName="Description">
+            </div>
+
+          </div>
+        </div>
+
+       
+      </div>
+      <div class="row align-items-center mb-5">
+        
+        <div class="col-lg-4 ml-auto">
+          <div class="row">
+            <div class="col-6">
+              <a href="#" class="btn btn-block btn-light btn-md"><span class="icon-open_in_new mr-2"></span>Preview</a>
+            </div>
+            <div class="col-6"(click)="PostJob()">
+              <a class="btn btn-block btn-primary btn-md" >Save Job</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+  </section>

@@ -1,0 +1,129 @@
+<!-- Diploma -->
+<span *ngIf="role=='JobSeeker'">
+<section class="site-section pb-0">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+            <img src="assets/images/sq_img_6.jpg" alt="Image" class="img-fluid img-shadow"> 
+        </div>
+        <div class="col-lg-5 ml-auto">
+          <span *ngIf="role=='JobSeeker'">
+               <h2 class="section-title mb-3">Diploma</h2>
+             <div *ngFor="let D of Diploma">
+               <h4>{{D.diplomaName}}</h4>
+               <p>{{D.gradiatedYear}},{{D.country}}</p>
+               <p>{{D.description}}</p>
+             </div>
+          </span>
+          <span *ngIf="role=='Company'">
+             <h2 class="section-title mb-3">About as </h2>
+               <div >
+                 <h4>{{Company.companyName}}</h4>
+                 <p>{{Company.description}}</p>
+                 <p> </p>
+               </div>
+          </span>
+          
+
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Experience -->
+  <section class="site-section pb-0">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0 order-md-2">
+            <img src="assets/images/sq_img_8.jpg" alt="Image" class="img-fluid img-shadow">
+        </div>
+        <div class="col-lg-5 mr-auto order-md-1  mb-5 mb-lg-0">
+          <span *ngIf="role=='JobSeeker'">
+            <h2 class="section-title mb-3">Experience</h2>
+            <div *ngFor="let e of Experience">
+            <h4>Company :{{e.companyName}}</h4>
+            <p>{{e.startDate}} to {{e.endDate}}</p>
+            <p>Position : {{e.jobTitle}}</p>
+          </div>
+          </span>
+          <span *ngIf="role=='Company'">
+            <h2 class="section-title mb-3">Info</h2>
+            <p>Full address:{{Company.location}}  </p>
+            <p>Email:{{Company.email}} </p>
+            <p>Info line : {{Company.phone}} </p>
+          </span>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="site-section pb-0">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+            <img src="assets/images/sq_img_6.jpg" alt="Image" class="img-fluid img-shadow"> 
+        </div>
+        <div class="col-lg-5 ml-auto">
+          <span *ngIf="role=='JobSeeker'">
+               <h2 class="section-title mb-3">Skills</h2>
+             <div *ngFor="let S of Skills">
+               <p>{{S.SB.skillsName}}</p>
+               <p></p>
+             </div>
+          </span>
+          <span *ngIf="role=='Company'">
+             <h2 class="section-title mb-3">About as </h2>
+               <div >
+                 <h4>{{Company.companyName}}</h4>
+                 <p>{{Company.description}}</p>
+                 <p> </p>
+               </div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</span>
+<span *ngIf="role=='Company'">
+  <section class="site-section">
+    <div class="container">
+
+      <div class="row align-items-center block__69944">
+
+        <div class="col-md-6">
+          <img src="{{Company.picture}}" alt="Image" class="img-fluid mb-4 rounded">
+        </div>
+
+        <div class="col-md-6">
+          <h3>{{Company.companyName}}</h3>
+          <p class="text-muted">Activity filed: {{Company.activityFiled}}</p>
+          <p class="text-muted">Location: {{Company.location}}</p>
+          <p>Description: {{Company.description}}</p>
+          <div class="social mt-4">
+            <a style="margin-left: 3px ;" href="#"><span class="icon-facebook" ></span></a>
+            <a style="margin-left: 3px ;" href="#"><span class="icon-twitter"></span></a>
+            <a style="margin-left: 3px ;" href="#"><span class="icon-instagram"></span></a>
+            <a style="margin-left: 3px ;" href="#"><span class="icon-linkedin"></span></a>
+          </div>
+        </div>
+
+        <div class="col-md-6 order-md-2 ml-md-auto">
+          <img src="assets/images/person_5.jpg" alt="Image" class="img-fluid mb-4 rounded">
+        </div>
+
+        <div class="col-md-6">
+          <h5>{{Company.companyName}} cantact :</h5>
+          <p class="text-muted">E-mail:  {{Company.email}} </p>
+          <p>Info line:  {{Company.phone}}</p>
+          <div class="social mt-4">
+            <a style="margin-left: 3px ;" href="#"><span class="icon-facebook" ></span></a>
+            <a style="margin-left: 3px ;" href="#"><span class="icon-twitter"></span></a>
+            <a style="margin-left: 3px ;" href="#"><span class="icon-instagram"></span></a>
+            <a style="margin-left: 3px ;" href="#"><span class="icon-linkedin"></span></a>
+          </div>
+        </div>
+    </div>
+    </div>
+  </section>
+</span>
+  
+

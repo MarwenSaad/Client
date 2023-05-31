@@ -1,0 +1,56 @@
+<header class="site-navbar mt-3">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="site-logo col-6"><a href="index.html">JobBoard</a></div>
+
+        <nav class="mx-auto site-navigation">
+          <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
+            
+            <li><a href="index.html" class="nav-link active" routerLink="Reception">Home</a></li>
+            <li><a href="#"  (click)="GoToFindJob()" >Find Job</a></li>
+            <li *ngIf="role=='JobSeeker'&&userconnect !=null"><a href="index.html"  routerLink="BrowseCompanies">Browse Companies</a></li>
+            <li *ngIf="role=='Company'&&userconnect !=null"><a href="index.html"  routerLink="BrowseJobSeeker">Browse JobSeeker</a></li>
+
+            <li class="has-children">
+              <a >JobGate</a>
+              <ul class="dropdown">
+                <li><a href="about.html" routerLink="About">About</a></li>
+                <li><a href="services.html" routerLink="JobGateServices">Services</a></li>
+                <li><a href="blog.html" routerLink="Blog">Blog</a></li>
+                <li><a href="contact.html" routerLink="Contact">Contact</a></li>
+              </ul>
+            </li>
+
+            <li class="d-lg-none"><a href="post-job.html"><span class="mr-2">+</span> Post a Job</a></li>
+            <li class="d-lg-none"><a href="login.html">Log In</a></li>
+          </ul>
+        </nav>
+        
+        <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
+          <div class="ml-auto">
+            <a style="color: white ;"  class="btn btn-outline-white border-width-2 d-none d-lg-inline-block" *ngIf="role=='Company'||role==null" (click)="postjob()"><span class="mr-2 icon-add"></span>Post a Job</a>&nbsp;
+            <a href="login.html" class="btn btn-primary border-width-2 d-none d-lg-inline-block" routerLink="/Login" *ngIf="userconnect==null"><span class="mr-2 icon-lock_outline"></span>Log In</a>&nbsp;
+            <span *ngIf="userconnect !=null">
+              <a style="color: white ;" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                        <a  *ngIf="role=='Company'">
+                          <span class="mr-2 profile-header-img "><img src={{img}} class="profile profile-header-img "/></span>
+                            {{userconnect[0].companyName}}
+                        </a>
+                        <a  *ngIf="role=='JobSeeker'">
+                          <span class="mr-2 "><img cl src={{img}} class="profile profile-header-img "  /></span>
+                            {{userconnect[0].firstName}}
+                        </a>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#" routerLink="/Profile">Profile</a>
+                <a class="dropdown-item" href="#" routerLink="/Profile/ProfileSettings">Settings</a>
+                <a class="dropdown-item" href="#" (click)="LogOut()">LogOut</a>
+              </div>
+            </span>
+          </div>
+          <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span class="icon-menu h3 m-0 p-0 mt-2"></span></a>
+        </div>
+
+      </div>
+    </div>
+  </header>

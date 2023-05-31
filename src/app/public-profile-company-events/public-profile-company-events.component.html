@@ -1,0 +1,27 @@
+<section class="site-section" >
+    <div class="container" *ngFor="let E of Events" >
+
+      <div class="row align-items-center block__69944" >
+
+        <div class="col-md-6" style="height:300px ;display: table;">
+            <span *ngFor="let P of (E.P)">
+                <img style="max-width: 150px; margin: 5px;" src="{{P.data}}" alt="Image" class="img-fluid mb-4 rounded">
+            </span>
+          
+        </div>
+
+        <div class="col-md-6">
+          <h3></h3>
+          <p class="text-muted">{{E.E.eventName}} </p>
+          <p class="text-muted">{{E.E.eventLocation}} </p>
+          <p>Description: {{E.E.eventDescription}}</p>
+          <p>EndDate: {{E.E.endDate}}</p>
+          <div class="social mt-4" *ngIf="userconnect[0].role=='JobSeeker'">
+            <a style="margin-left: 3px ;" href="#"><span  >&#9741;</span></a>
+          </div>
+        </div>
+        
+      </div>
+    <div style="height:2px ;background-color: chocolate;margin-top: 15px;margin-bottom: 15px;"></div>
+    </div>
+  </section>

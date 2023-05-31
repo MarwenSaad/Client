@@ -1,0 +1,58 @@
+
+  <section class="section-hero overlay inner-page bg-image " style="background-image: url('assets/images/hero_1.jpg');" id="home-section">
+    <div class="container">
+      <div class="profile">
+        <div class="profile-header">
+           <!-- BEGIN profile-header-cover -->
+           <div class="profile-header-cover"></div>
+           <!-- END profile-header-cover -->
+           <!-- BEGIN profile-header-content -->
+           <div class="profile-header-content">
+              <!-- BEGIN profile-header-img -->
+              <div class="profile-header-img">
+               <span *ngIf="role=='Company'&& Company!=null">
+                  <img src="{{Company.picture}}" alt="">
+               </span>
+               <span *ngIf="role=='JobSeeker'&&JobSeeker!=null">
+                  <img src="{{JobSeeker.picture}}" alt="">
+               </span>
+
+              </div>
+              <!-- END profile-header-img -->
+              <!-- BEGIN profile-header-info -->
+              <div class="profile-header-info">
+               <span *ngIf="role=='Company'&& Company!=null">
+                  <h4 class="m-t-10 m-b-5">{{Company.companyName}}</h4>
+                 <p class="m-b-10">{{Company.activityFiled}}</p>
+               </span>
+               <span *ngIf="role=='JobSeeker'&&JobSeeker!=null">
+                  <h4 class="m-t-10 m-b-5"> {{JobSeeker.firstName}} {{JobSeeker.lastName}} </h4>
+                 <p class="m-b-10">{{JobSeeker.jobTitle}}</p>
+               </span>
+               <span *ngIf="role=='JobSeeker'">
+                  <a  class="btn btn-sm btn-info mb-2" (click)="CreateConversation()">Message </a>
+               </span>
+               <span *ngIf="role=='Company'">
+                  <a  class="btn btn-sm btn-info mb-2" (click)="CreateConversation()">Message</a>
+               </span>
+              </div>
+              <!-- END profile-header-info -->
+           </div>
+           <!-- END profile-header-content -->
+           <!-- BEGIN profile-header-tab -->
+           <ul class="profile-header-tab nav nav-tabs" *ngIf="role=='Company'">
+              <li class="nav-item"><a href="https://www.bootdey.com/snippets/view/bs4-profile-with-timeline-posts"  class="nav-link_" routerLink="PublicProfileHome">Home</a></li>
+              <li class="nav-item"><a href="https://www.bootdey.com/snippets/view/bs4-profile-about"  class="nav-link_" routerLink="PublicProfileAbout">ABOUT</a></li>
+               <li class="nav-item"><a href="https://www.bootdey.com/snippets/view/profile-photos"  class="nav-link_" routerLink="PublicProfileCompanyJobs">JOBS</a></li>
+              <li class="nav-item"><a href="https://www.bootdey.com/snippets/view/bs4-profile-friend-list"  class="nav-link_ active show" routerLink="PublicProfileCompanyEvents">Events</a></li>
+           </ul>
+           <ul class="profile-header-tab nav nav-tabs" *ngIf="role=='JobSeeker'">
+            <li class="nav-item"><a href="https://www.bootdey.com/snippets/view/bs4-profile-with-timeline-posts"  class="nav-link_" routerLink="PublicProfileHome">Home</a></li>
+            <li class="nav-item"><a href="https://www.bootdey.com/snippets/view/bs4-profile-about"  class="nav-link_"   routerLink="PublicProfileAbout">ABOUT</a></li>
+         </ul>
+           <!-- END profile-header-tab -->
+        </div>
+     </div>
+    </div>
+  </section>
+  <router-outlet></router-outlet>

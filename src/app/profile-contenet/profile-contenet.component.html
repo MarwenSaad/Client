@@ -1,0 +1,129 @@
+
+
+
+
+
+
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+   <div class="row">
+      <div class="col-md-12">
+         <div id="content" class="content content-full-width">
+            <!-- begin profile-content -->
+            <div class="profile-content">
+               <!-- begin tab-content -->
+               <div class="tab-content p-0">
+                  <!-- begin #profile-post tab -->
+                  <div class="tab-pane fade active show" id="profile-post">
+
+                     <!-- begin timeline -->
+                     <ul class="timeline">
+
+
+
+                     <!---->
+                     <div class="panel-content panel-activity" style="max-width: 63%; margin-left: 20%;">
+                        <form action="#" class="panel-activity__status" [formGroup]="PostForm">
+                            <textarea name="user_activity" placeholder="Share what you've been up to..." class="form-control" formControlName="Text"></textarea>
+                            <div class="actions">
+                                <div class="btn-group">
+                                    <button type="button" class="btn-link" title="" data-toggle="tooltip" data-original-title="Post an Image">
+                                        <i class="fa fa-image"></i>
+                                    </button>
+                                    <button type="button" class="btn-link" title="" data-toggle="tooltip" data-original-title="Post an Video">
+                                        <i class="fa fa-video-camera"></i>
+                                    </button>
+                                    <button type="button" class="btn-link" title="" data-toggle="tooltip" data-original-title="Post an Idea">
+                                        <i class="fa fa-lightbulb-o"></i>
+                                    </button>
+                                    <button type="button" class="btn-link" title="" data-toggle="tooltip" data-original-title="Post an Question">
+                                        <i class="fa fa-question-circle-o"></i>
+                                    </button>
+                                </div>
+                                <button type="submit" class="btn btn-sm btn-rounded btn-info" (click)="CreatePoste()">
+                                    Post
+                                </button>
+                            </div>
+                        </form>
+                     </div>
+                     <!---->
+
+
+
+
+                        <li *ngFor="let p of Post">
+                           <!-- begin timeline-time -->
+                           <div class="timeline-time">
+                              <span class="time" style="font-size:11px ;">{{p.P.postDate}}</span>
+                           </div>
+                           <!-- end timeline-time -->
+                           <!-- begin timeline-icon -->
+                           <div class="timeline-icon">
+                              <a href="javascript:;">&nbsp;</a>
+                           </div>
+                           <!-- end timeline-icon -->
+                           <!-- begin timeline-body -->
+                           <div class="timeline-body">
+                              <div class="timeline-header" *ngIf="p.U.role=='JobSeeker'">
+                                 <span class="userimage"><img src="{{p.U.picture}}" alt=""></span>
+                                 <span class="username"><a href="javascript:;">{{p.U.firstName}}</a> <small></small></span>
+                                 <span class="pull-right text-muted" type="submit" (click)="DeletePost(p.P.postId)" >&#10006;</span>
+                              </div>
+                              <div class="timeline-header" *ngIf="p.U.role=='Company'">
+                                 <span class="userimage"><img src="{{p.U.picture}}" alt=""></span>
+                                 <span class="username"><a href="javascript:;">{{p.U.companyName}} </a> <small></small></span>
+                                 <span class="pull-right text-muted" type="submit" (click)="DeletePost(p.P.postId)" >&#10006;</span>
+                              </div>
+                              <div class="timeline-content">
+                                 <p>
+                                    {{p.P.text}}
+                                 </p>
+                              </div>
+                              <div class="timeline-likes">
+                                 <div class="stats-right">
+                                    <span class="stats-text">Show Comments</span>
+                                 </div>
+                                 <div class="stats">
+                                    <span class="fa-stack fa-fw stats-icon">
+                                    <i class="fa fa-circle fa-stack-2x text-danger"></i>
+                                    <i class="fa fa-heart fa-stack-1x fa-inverse t-plus-1"></i>
+                                    </span>
+                                    <span class="fa-stack fa-fw stats-icon">
+                                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                                    <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    <span class="stats-total">4.3k</span>
+                                 </div>
+                              </div>
+                              <div class="timeline-comment-box">
+                                 <div class="user"><img src="{{userconnect[0].picture}}"></div>
+                                 <div class="input">
+                                    <form action="">
+                                       <div class="input-group">
+                                          <input type="text" class="form-control rounded-corner" placeholder="Write a comment...">
+                                          <span class="input-group-btn p-l-10">
+                                          <button class="btn btn-primary f-s-12 rounded-corner" type="button">Comment</button>
+                                          </span>
+                                       </div>
+                                    </form>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- end timeline-body -->
+                        </li>
+
+                     </ul>
+                     <!-- end timeline -->
+                  </div>
+                  <!-- end #profile-post tab -->
+               </div>
+               <!-- end tab-content -->
+            </div>
+            <!-- end profile-content -->
+         </div>
+      </div>
+   </div>
+</div>
+

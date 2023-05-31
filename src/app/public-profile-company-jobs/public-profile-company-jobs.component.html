@@ -1,0 +1,122 @@
+<section class="site-section" style="padding-bottom:10px ;">
+  <div class="container">
+    <div class="row align-items-center mb-0">
+      <div class="col-lg-4">
+        <div class="row">
+          <div class="col-9">
+            <a class="btn btn-block btn-primary btn-md" style=" padding-left:1px ;padding-right: 1px;"
+              (click)="open(Spontanious)">Spontanious application</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="site-section" id="next" style="padding-top:20px ;">
+  <div class="container">
+    <ul class="job-listings mb-5">
+      <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center" *ngFor="let job of Jobs">
+        <a (click)="openApplication(Application,job)" ></a>
+        <div class="job-listing-logo">
+          <img src="{{job.C.picture}}" alt="Image" class="img-fluid">
+        </div>
+
+        <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
+          <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
+            <h2>{{job.J.jobTitle}}</h2>
+            <strong>{{job.C.companyName}}</strong>
+          </div>
+          <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
+            <span class="icon-room"></span> {{job.J.location}}
+          </div>
+          <div class="job-listing-meta">
+            <span class="badge badge-danger">{{job.J.jobType}}</span>
+          </div>
+        </div>
+
+      </li>
+    </ul>
+
+
+
+    <div class="row pagination-wrap">
+      <div class="col-md-6 text-center text-md-left mb-4 mb-md-0">
+        <span>Showing 1-7 Of 22,392 Jobs</span>
+      </div>
+      <div class="col-md-6 text-center text-md-right">
+        <div class="custom-pagination ml-auto">
+          <a href="#" class="prev">Prev</a>
+          <div class="d-inline-block">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+          </div>
+          <a href="#" class="next">Next</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</section>
+
+
+
+<!--Modal/send spontanious application-->
+
+<ng-template #Spontanious let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Spontanious application</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')" >X</button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="SpontaniousForm">
+      <div class="col-lg-12 form-group">
+        <h6>Name :</h6>
+        <input type="text" id="fname"  class="form-control text-center w-100"  formControlName="FirstName" >
+      </div>
+      <div class="col-lg-12 form-group">
+        <h6>LastName :</h6>
+        <input type="text" id="fname" class="form-control text-center w-100"  formControlName="LastName">
+      </div>
+      <div class="col-lg-12 form-group">
+        <h6>Cv :</h6>
+        <input type="file" id="fname" class="form-control text-center w-100"  (change)="handleUpload($event)">
+      </div>
+
+      <div class="col-lg-12 form-group">
+        <h6>Cover lettre :</h6>
+        <input type="text" id="fname" class="form-control text-center w-100"  formControlName="CoverLettre">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="SentSpontanious()">Sent</button>
+  </div>
+
+</ng-template>
+
+
+<ng-template #Application let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title"> Application</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')" >X</button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="ApplicationForm">
+      <div class="col-lg-12 form-group">
+        <h6>Cover lettre :</h6>
+        <input type="text" class="form-control text-center w-100"  formControlName="CoverLetter">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="Apply()">Apply</button>
+      </div>
+    </form>
+  </div>
+
+
+</ng-template>

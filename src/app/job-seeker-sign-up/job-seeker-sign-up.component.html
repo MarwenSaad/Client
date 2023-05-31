@@ -1,0 +1,66 @@
+
+
+<section class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mb-5">
+          <h2 class="mb-4">Sign Up To JobBoard as a JobSeeker</h2>
+          <form  class="p-4 border rounded" [formGroup]="SignUpForm" >
+            <div class="row form-group">
+              <div class="col-md-12 mb-3 mb-md-0">
+                <input type="file" id="fname" class="form-control" placeholder="picture" (change)="handleUpload($event)" >
+              </div>
+          </div>
+
+            <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <input type="text"  id="fname"  class="form-control" placeholder="User name" formControlName="UserName">
+                </div>
+            </div>
+            <div class="row form-group">
+              <div class="col-md-12 mb-3 mb-md-0">
+                <input type="text"  id="fname"  class="form-control" placeholder="First name" formControlName="FirstName">
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col-md-12 mb-3 mb-md-0">
+                <input type="text"  id="fname" class="form-control" placeholder="Last name" formControlName="LastName">
+              </div>
+            </div>
+            <div class="row form-group mb-4">
+              <div class="col-md-12 mb-3 mb-md-0">
+                <input type="email"  id="fname" class="form-control" placeholder="E-mail " formControlName="Email">
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col-md-12 mb-3 mb-md-0">
+                <input type="password"  id="fname" class="form-control" placeholder="Password" formControlName="Password">
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col-md-12 mb-3 mb-md-0">
+                <input type="text"  id="fname"  class="form-control" placeholder="JobTitle" formControlName="JobTitle">
+              </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <input type="tel"  id="fname" class="form-control" placeholder="Phone number" formControlName="Phone">
+                </div>
+              </div>
+            <div class="row form-group mb-4">
+              <div class="col-md-12 mb-3 mb-md-0">
+                <input type="text"  id="fname"  class="form-control" placeholder="Full address" formControlName="FullAddress">
+              </div>
+            </div>
+            
+            <div class="row form-group">
+              <div class="col-md-12">
+                <input type="submit"  id="fname" value="Sign Up"  class="btn px-4 btn-primary text-white" (click)="JSSignUp()">
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>

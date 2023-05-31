@@ -1,0 +1,19 @@
+<div style="width: 100%;background-color: rgb(236, 227, 226);position:fixed;bottom: 20px;z-index: 10;" *ngIf="userconnect[0].role=='JobSeeker'" >
+  <div class="btn-group" style="float: right;">
+    <div style="width: 170px; background-color: rgb(216, 212, 212);" class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Chat
+    </div>
+    <div class="dropdown-menu">
+        <span *ngIf="userconnect[0].role=='JobSeeker'" >
+            <span *ngFor="let p of Allchat" >
+                <li type="submit" style="margin-left: 5px;padding-left: 5px;"><p>{{p.C.companyName}}</p></li>
+            </span>
+        </span>
+        <span *ngIf="userconnect[0].role=='Campany'">
+            <span *ngFor="let p of Allchat">
+                <li type="submit" style="margin-left: 5px;">{{p.C.companyName}}</li>
+            </span>
+        </span>
+    </div>
+  </div>
+</div>

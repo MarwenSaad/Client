@@ -1,0 +1,81 @@
+<section class="site-section" style="padding-bottom:10px ;">
+  <div class="container">
+    <div class="row align-items-center mb-0">
+      <div class="col-lg-4">
+        <div class="row">
+          <div class="col-9">
+            <a class="btn btn-block btn-primary btn-md" style=" padding-left:1px ;padding-right: 1px; color: aquamarine;"
+              (click)="open(EventsContenent)">Add events</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="site-section" >
+    <div class="container" *ngFor="let E of Events">
+
+      <div class="row align-items-center block__69944" >
+
+        <div class="col-md-6" style="height:300px ;display: inline-table;">
+            <span *ngFor="let P of (E.P)">
+                <img style="max-width: 150px; margin: 5px;" src="{{P.data}}" alt="Image" class="img-fluid mb-4 rounded">
+            </span>
+          
+        </div>
+
+        <div class="col-md-6">
+          <h3></h3>
+          <p class="text-muted">{{E.E.eventName}} </p>
+          <p class="text-muted">{{E.E.eventLocation}} </p>
+          <p>Description: {{E.E.eventDescription}}</p>
+          <p>EndDate: {{E.E.endDate}}</p>
+          <div class="social mt-4">
+            <a type="submit" style="margin-left: 3px ; background-color: rgb(222, 29, 29);"  (click)="DeleteEvents(E.E.eventId)"><span  >&#10006;</span></a>
+            <a type="submit" style="margin-left: 3px ;background-color:rgb(60, 170, 60)"  (click)="ApdateEvents(E.E)"><span > &#9850;</span></a>
+          </div>
+        </div>
+        
+      </div>
+    <div style="height:2px ;background-color: chocolate;margin-top: 15px;margin-bottom: 15px;"></div>
+    </div>
+  </section>
+
+  <ng-template #EventsContenent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title"> Add Event</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')" >X</button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="EventForm" >
+        <div class="col-lg-12 form-group">
+          <h6>Event Name :</h6>
+          <input type="text" class="form-control text-center w-100"  formControlName="EventName" />
+        </div>
+        <div class="col-lg-12 form-group">
+          <h6>Description :</h6>
+          <input type="text" class="form-control text-center w-100"  formControlName="EventDescription">
+        </div>
+        <div class="col-lg-12 form-group">
+            <h6>Limited date :</h6>
+            <input type="date" class="form-control text-center w-100"  formControlName="EndDate">
+        </div>
+        <div class="col-lg-12 form-group">
+          <h6>Location :</h6>
+          <input type="text" class="form-control text-center w-100"  formControlName="EventLocation">
+      </div>
+        <div class="col-lg-12 form-group">
+          <h6>Event picture :</h6>
+          <input type="file" class="form-control text-center w-100" multiple="multiple"  (change)="handleUpload($event)">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="AddEvents()" >Sent</button>
+        </div>
+      </form>
+    </div>
+  
+  
+  </ng-template>
